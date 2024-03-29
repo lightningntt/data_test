@@ -1,0 +1,61 @@
+on:
+  push:
+    paths-ignore:
+      - Document/**
+      - .github/**
+    branches:
+      - develop
+jobs:      
+  terraform:
+    defaults:
+      run:
+        shell: bash
+
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    environment: "dev"
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+
+      - name: Setup Terraform CLI
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: true
+          terraform_version: 1.1.7
+
+      - name: Set-up Terraform (Skip In case of failure)
+        env:
+          TF_VAR_dynamodb_lock: dev-new-relic-terraform-lock
+          TF_VAR_s3_lock      : dev-new-relic-terraform-s3-lock
+          TF_VAR_aws_region: ${{secrets.AWS_REGION}}
+        run: |
+          cd tf_backend
+          terraform init
+          terraform plan 
+          terraform apply --auto-approve
+          cd ../
+        continue-on-error: true
+
+      - name: Terraform
+        env:
+          TF_VAR_aws_region: ${{secrets.AWS_REGION}}
+
+        run: |
+          terraform init  -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="bucket=dev-new-relic-terraform-s3-lock" -backend-config="dynamodb_table=dev-new-relic-terraform-lock"
+          terraform plan -var-file="environments/dev.tfvars" 
+          terraform apply -var-file="environments/dev.tfvars" --auto-approve

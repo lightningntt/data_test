@@ -1,1 +1,2 @@
-# data_test
+
+#Automation testing repo for SNOW datasource

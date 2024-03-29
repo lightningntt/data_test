@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "data-test"
+version = "1.1.1"
+description = "manage dependencies"
+authors = ["trung191997@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "~3.8"
+snowflake-connector-python = "*"
+awswrangler = "*"
+pytest-cov = "^2.8.1"
+pytest = "^5.3.5"
+junit2html = "*"
+
+[tool.poetry.dev-dependencies]
+boto3 = "1.14.3"

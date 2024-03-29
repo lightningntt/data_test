@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - ls
+      - python -m pip install --upgrade pip
+      - pip install poetry
+      - poetry install
+  build:
+    commands:
+      - poetry run python -m pytest src/integration/ --junitxml=pytest_reports/pytest_report.xml
+  post_build:
+    commands:
+      - poetry run junit2html pytest_reports/pytest_report.xml pytest_reports/pytest_html_report.html
+      - poetry run python src/util/report_testing.py
+
+reports:
+  pytest_reports:
+    files:
+      - pytest_report.xml
+    base-directory: pytest_reports/
+    file-format: JUNITXML
+
+artifacts:
+  files:
+    - 'pytest_reports/*'
+  name: integration/$CODEBUILD_BUILD_NUMBER
+
+  
