@@ -6,14 +6,7 @@ from snowflake.connector import DictCursor
 import pandas as pd
 
 class SnowflakeConnector: 
-    os.environ["SNOWFLAKE_ACCOUNT"] = "cai.us-east-1"
-    os.environ["SNOWFLAKE_ROLE"] = "SNOWFLAKE_CA_ENGINEERING_OPS_CREATORS"
-    os.environ["SNOWFLAKE_WAREHOUSE"] = "WHS_ENGINEERING_OPS"
-    os.environ["SNOWFLAKE_DATABASE"] = "ENGINEERING_OPERATIONS"
-    os.environ["SNOWFLAKE_REGION"] = "us-east-1"
-    os.environ["SNOWFLAKE_AUTHENTICATOR"] = "https://coxauto.okta.com"
-
-
+    
     def __init__(self):
         """"Create the connection to snowflake"""
         #self.connector = None
