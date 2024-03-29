@@ -2,9 +2,8 @@ on:
   push:
     paths-ignore:
       - Document/**
-      - .github/**
     branches:
-      - develop
+      - dev
 jobs:      
   terraform:
     defaults:
