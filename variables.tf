@@ -31,3 +31,7 @@ variable "data_ops_email" {
 variable "source_version" {
   type    = string
 }
+
+variable "github_personal_token" {
+  type    = string
+}

@@ -18,11 +18,5 @@ locals {
   tags = {
     Type      = "Automation test"
   }
-
-  ghe_personal_token = jsondecode(
-    data.aws_secretsmanager_secret_version.ghe_personal_token.secret_string
-  )
 }
-data "aws_region" "current" {}
-data "aws_caller_identity" "current" {}
-data "aws_iam_account_alias" "current" {}
+

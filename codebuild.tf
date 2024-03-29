@@ -1,7 +1,7 @@
 resource "aws_codebuild_source_credential" "automation_test_project" {
   auth_type   = "PERSONAL_ACCESS_TOKEN"
   server_type = "GITHUB_ENTERPRISE"
-  token       = local.ghe_personal_token.token
+  token       = var.github_personal_token
 }
 
 
