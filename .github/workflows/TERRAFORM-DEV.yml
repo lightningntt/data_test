@@ -57,6 +57,6 @@ jobs:
           TF_VAR_your_account: ${{ secrets.YOUR_ACCOUNT }}
           TF_VAR_your_repo: ${{ secrets.YOUR_REPO }}
         run: |
-          terraform init  -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="bucket=${{ secrets.YOUR_ACCOUNT }}-dev-new-relic-terraform-s3-lock" -backend-config="${{ secrets.YOUR_ACCOUNT }}-dynamodb_table=dev-new-relic-terraform-lock"
+          terraform init  -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="bucket=${{ secrets.YOUR_ACCOUNT }}-dev-new-relic-terraform-s3-lock" -backend-config="dynamodb_table=${{ secrets.YOUR_ACCOUNT }}-dev-new-relic-terraform-lock"
           terraform plan -var-file="environments/dev.tfvars" 
           terraform apply -var-file="environments/dev.tfvars" --auto-approve
