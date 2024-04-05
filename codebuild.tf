@@ -49,7 +49,7 @@ resource "aws_codebuild_project" "integration_automation_test_project" {
 
   source {
     type            = "GITHUB_ENTERPRISE"
-    location        = "https://github.com/lightningntt/data_test"
+    location        = var.your_repo
     git_clone_depth = 1
     buildspec       = "buildspec/buildspec-integration.yml"
   }

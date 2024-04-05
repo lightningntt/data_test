@@ -9,3 +9,11 @@ variable "dynamodb_lock"{
 variable "s3_lock"{
   type = string
 }
+
+variable "your_account" {
+  type = string
+}
+
+variable "your_repo" {
+  type = string
+}

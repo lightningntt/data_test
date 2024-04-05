@@ -35,3 +35,11 @@ variable "source_version" {
 variable "github_personal_token" {
   type    = string
 }
+
+variable "your_account" {
+  type = string
+}
+
+variable "your_repo" {
+  type = string
+}

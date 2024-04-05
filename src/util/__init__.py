@@ -38,10 +38,9 @@ SNOWFLAKE_CREDENTIALS_SECRET  = _retrieve_secret("snowflake-credential")
 os.environ["NEW_RELIC_TOKEN"]     = NEW_RELIC_CREDENTIALS_SECRET["token"]
 os.environ["SNOWFLAKE_USER"]      = SNOWFLAKE_CREDENTIALS_SECRET["user_account"]
 os.environ["SNOWSQL_PWD"]         = SNOWFLAKE_CREDENTIALS_SECRET["password"]
-
-os.environ["SNOWFLAKE_ACCOUNT"] = ""
-os.environ["SNOWFLAKE_ROLE"] = ""
-os.environ["SNOWFLAKE_WAREHOUSE"] = ""
-os.environ["SNOWFLAKE_DATABASE"] = ""
-os.environ["SNOWFLAKE_REGION"] = "us-east-1"
-os.environ["SNOWFLAKE_AUTHENTICATOR"] = ""
+os.environ["SNOWFLAKE_ACCOUNT"] = SNOWFLAKE_CREDENTIALS_SECRET["account"]
+os.environ["SNOWFLAKE_ROLE"] = SNOWFLAKE_CREDENTIALS_SECRET["role"]
+os.environ["SNOWFLAKE_WAREHOUSE"] = SNOWFLAKE_CREDENTIALS_SECRET["warehouse"]
+os.environ["SNOWFLAKE_DATABASE"] = SNOWFLAKE_CREDENTIALS_SECRET["database"]
+os.environ["SNOWFLAKE_REGION"] = SNOWFLAKE_CREDENTIALS_SECRET["region"]
+os.environ["SNOWFLAKE_AUTHENTICATOR"] = SNOWFLAKE_CREDENTIALS_SECRET["authenticator"]
