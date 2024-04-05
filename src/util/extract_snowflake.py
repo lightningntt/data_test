@@ -42,16 +42,22 @@ def _retrieve_secret(secret_id: str) -> dict:
 NEW_RELIC_CREDENTIALS_SECRET = _retrieve_secret("new-relic-credentials")
 SNOWFLAKE_CREDENTIALS_SECRET  = _retrieve_secret("snowflake-credential")
 
-os.environ["NEW_RELIC_TOKEN"]     = NEW_RELIC_CREDENTIALS_SECRET["token"]
-os.environ["SNOWFLAKE_USER"]      = SNOWFLAKE_CREDENTIALS_SECRET["user_account"]
-os.environ["SNOWSQL_PWD"]         = SNOWFLAKE_CREDENTIALS_SECRET["password"]
-os.environ["SNOWFLAKE_ACCOUNT"] = SNOWFLAKE_CREDENTIALS_SECRET["account"]
-os.environ["SNOWFLAKE_ROLE"] = SNOWFLAKE_CREDENTIALS_SECRET["role"]
-os.environ["SNOWFLAKE_WAREHOUSE"] = SNOWFLAKE_CREDENTIALS_SECRET["warehouse"]
-os.environ["SNOWFLAKE_DATABASE"] = SNOWFLAKE_CREDENTIALS_SECRET["database"]
-os.environ["SNOWFLAKE_REGION"] = SNOWFLAKE_CREDENTIALS_SECRET["region"]
-os.environ["SNOWFLAKE_AUTHENTICATOR"] = SNOWFLAKE_CREDENTIALS_SECRET["authenticator"]
+print('check credential:\n')
+print(NEW_RELIC_CREDENTIALS_SECRET)
+print(SNOWFLAKE_CREDENTIALS_SECRET)
 
+os.environ["NEW_RELIC_TOKEN"]     = NEW_RELIC_CREDENTIALS_SECRET["token"]
+
+os.environ["SNOWFLAKE_USER"]      = 'TRUNGNTINNOVATION' #SNOWFLAKE_CREDENTIALS_SECRET["user_account"]
+os.environ["SNOWSQL_PWD"]         = 'cbyiXiigPNDnZ6_' #SNOWFLAKE_CREDENTIALS_SECRET["password"]
+os.environ["SNOWFLAKE_ACCOUNT"] = 'ejb06349.us-east-1' #SNOWFLAKE_CREDENTIALS_SECRET["account"]
+os.environ["SNOWFLAKE_ROLE"] = 'ACCOUNTADMIN' #SNOWFLAKE_CREDENTIALS_SECRET["role"]
+os.environ["SNOWFLAKE_WAREHOUSE"] = 'COMPUTE_WH' #SNOWFLAKE_CREDENTIALS_SECRET["warehouse"]
+os.environ["SNOWFLAKE_DATABASE"] = 'DATA_TESTING' #SNOWFLAKE_CREDENTIALS_SECRET["database"]
+os.environ["SNOWFLAKE_REGION"] = 'us-east-1' #SNOWFLAKE_CREDENTIALS_SECRET["region"]
+os.environ["SNOWFLAKE_AUTHENTICATOR"] = 'https://ejb06349.us-east-1.snowflakecomputing.com' #SNOWFLAKE_CREDENTIALS_SECRET["authenticator"]
+
+os.environ["SNOWFLAKE_SCHEMA"]= 'NEWRELIC'
 
 class SnowflakeConnector: 
     
