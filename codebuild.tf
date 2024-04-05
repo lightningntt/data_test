@@ -42,7 +42,7 @@ resource "aws_codebuild_project" "integration_automation_test_project" {
 
     environment_variable {
       name  = "DATA_OPS_EMAIL"
-      value = var.data_ops_email
+      value = var.your_email
     }
     
   }
@@ -54,7 +54,7 @@ resource "aws_codebuild_project" "integration_automation_test_project" {
     buildspec       = "buildspec/buildspec-integration.yml"
   }
 
-  source_version = "refs/heads/develop"
+  source_version = var.source_version
 
   tags = {
     Environment = "Test"

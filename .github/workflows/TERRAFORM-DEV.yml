@@ -56,6 +56,7 @@ jobs:
           TF_VAR_github_personal_token: ${{secrets.GHP_TOKEN}}
           TF_VAR_your_account: ${{ secrets.YOUR_ACCOUNT }}
           TF_VAR_your_repo: ${{ secrets.YOUR_REPO }}
+          TF_VAR_your_email: ${{ secrets.YOUR_EMAIL }}
         run: |
           terraform init  -backend-config="region=${{ secrets.AWS_REGION }}" -backend-config="bucket=${{ secrets.YOUR_ACCOUNT }}-dev-new-relic-terraform-s3-lock" -backend-config="dynamodb_table=${{ secrets.YOUR_ACCOUNT }}-dev-new-relic-terraform-lock"
           terraform plan -var-file="environments/dev.tfvars" 

@@ -43,3 +43,7 @@ variable "your_account" {
 variable "your_repo" {
   type = string
 }
+
+variable "your_email" {
+  type = string
+}
