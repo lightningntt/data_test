@@ -1,0 +1,11 @@
+pandas==1.5.0
+aiohttp==3.8.1
+cryptography==36.0.2
+pyOpenSSL==22.0.0
+pyarrow==8.0.0
+snowflake-connector-python==3.5.0
+boto3==1.24.84
+pytest==7.1.3
+awswrangler==2.17.0
+junit2html==30.1.3
+pytest-xdist==2.5.0
