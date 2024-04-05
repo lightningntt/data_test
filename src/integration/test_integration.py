@@ -9,10 +9,10 @@ def test_sample_verify_dw_schema():
     #setup
     csvString = """COLUMN_NAME,DATA_TYPE
 name,TEXT
-date_id,NUMBER
+data_checksum,NUMBER
 id,NUMBER
-last_loaded_at,TIMESTAMP_NTZ
-time_id,NUMBER"""
+data_recorded_at,TIMESTAMP_NTZ
+"""
 
     # Read from CSV String
     csvStringIO = StringIO(csvString)
@@ -21,7 +21,7 @@ time_id,NUMBER"""
     #when
     query = f"""select "COLUMN_NAME", "DATA_TYPE" 
                 from INFORMATION_SCHEMA.columns 
-                where TABLE_NAME = 'accounts' and TABLE_SCHEMA = 'NEW_RELIC_DEV' 
+                where TABLE_NAME = 'accounts' and TABLE_SCHEMA = 'NEWRELIC' 
                 order by 'COLUMN_NAME'; """
 
     pd_dw_df = pd.DataFrame(connection.query(query, True))
