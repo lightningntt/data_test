@@ -2,7 +2,7 @@
 name = "data-test"
 version = "1.1.1"
 description = "manage dependencies"
-authors = ["trung191997@gmail.com"]
+authors = ["Trung Nguyen <trung191997@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "~3.8"
