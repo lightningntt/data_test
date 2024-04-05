@@ -11,6 +11,4 @@ pytest-cov = "*"
 pytest = "*"
 junit2html = "*"
 pandas = "*"
-
-[tool.poetry.dev-dependencies]
 boto3 = "*"
