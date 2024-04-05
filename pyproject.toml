@@ -7,10 +7,9 @@ authors = ["Trung Nguyen <trung191997@gmail.com>"]
 [tool.poetry.dependencies]
 python = "~3.8"
 snowflake-connector-python = "*"
-awswrangler = "*"
-pytest-cov = "^2.8.1"
-pytest = "^5.3.5"
+pytest-cov = "*"
+pytest = "*"
 junit2html = "*"
 
 [tool.poetry.dev-dependencies]
-boto3 = "1.14.3"
+boto3 = "*"
