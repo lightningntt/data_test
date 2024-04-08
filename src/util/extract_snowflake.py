@@ -4,8 +4,6 @@ import snowflake.connector as snow_connect
 from snowflake.connector import DictCursor
 
 
-os.environ["SNOWFLAKE_SCHEMA"]= 'NEWRELIC'
-
 class SnowflakeConnector: 
     
     def __init__(self):
