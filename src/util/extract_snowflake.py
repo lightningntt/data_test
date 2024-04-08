@@ -74,8 +74,7 @@ class SnowflakeConnector:
                 database=os.environ["SNOWFLAKE_DATABASE"],
                 schema =os.environ["SNOWFLAKE_SCHEMA"],
                 region=os.environ["SNOWFLAKE_REGION"],
-                password=os.environ["SNOWSQL_PWD"],
-                authenticator=os.environ["SNOWFLAKE_AUTHENTICATOR"]
+                password=os.environ["SNOWSQL_PWD"]
                 )
 
 
